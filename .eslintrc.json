@@ -7,9 +7,12 @@
       "standard"
   ],
   "parserOptions": {
-      "ecmaVersion": "latest",
+      "ecmaVersion": 12,
       "sourceType": "module"
   },
   "rules": {
-  }
+  },
+  "plugins": [
+    "class-property"
+  ]
 }
