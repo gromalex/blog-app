@@ -48,14 +48,14 @@
                 <input type="text" class="form-control" id="title" name="title">
               </div>
               <div class="mb-3">
-                <label for="content" class="form-label">Содержимое</label>
-                <textarea class="form-control" id="content" name="content"></textarea>
+                <label for="contentMd" class="form-label">Содержимое</label>
+                <textarea class="form-control" id="contentMd" name="contentMd"></textarea>
               </div>
               <div class="mb-3">
                 <label for="author" class="form-label">Автор</label>
                 <input type="text" class="form-control" id="author" name="author">
               </div>
-              <button type="submit" class="btn btn-primary">Создать</button>
+              <button type="submit" class="btn btn-primary">Сохранить</button>
             </form>
           </div>
         </div>
@@ -63,9 +63,9 @@
     </div>
 
     <template id="postTemplate">
-      <h2>{{title}}</h2>
-      <p class="text-muted"><time>{{createdAt}}</time></p>
-      <div>{{content}}</div>
+      <h2>${ title }</h2>
+      <p class="text-muted"><time>${ createdAt }</time></p>
+      <div>${ html }</div>
 
       <div class="mt-4">
         <button class="btn btn-warning" data-role="edit">Редактировать</button>

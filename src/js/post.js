@@ -1,3 +1,6 @@
+import { marked } from 'marked'
+import { template } from 'lodash'
+
 class Post {
   constructor (containerElement) {
     this.containerElement = containerElement
@@ -59,18 +62,22 @@ class Post {
   }
 
   buildTemplate (data) {
-    let template = this.templateElement.innerHTML
+    const templateHtml = this.templateElement.innerHTML
+    data.html = marked.parse(data.contentMd)
 
     // template = template
     //   .replaceAll('{{title}}', data.title)
     //   .replaceAll('{{createdAt}}', data.createdAt)
     //   .replaceAll('{{content}}', data.content)
 
-    for (const key in data) {
-      template = template.replaceAll(`{{${key}}}`, data[key])
-    }
+    // for (const key in data) {
+    //   template = template.replaceAll(`{{${key}}}`, data[key])
+    // }
 
-    return template
+    const compiled = template(templateHtml)
+    const result = compiled(data)
+
+    return result
   }
 
   render (html) {
